@@ -39,5 +39,6 @@
 	</scm>
 	<name>Lorem Ipsum Generator</name>
 	<url>https://github.com/theshoeshiner/lorem-ipsum-generator</url>
-	<description>A library for generating random latin text based on the standard &quot;Lorem Ipsum&quot; text.</description>
+	<description>A library for generating random latin text based on the standard &quot;Lorem Ipsum&quot; text.
+</description>
 </project>

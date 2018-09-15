@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.loremipsum</groupId>
+  <groupId>org.thshsh</groupId>
   <artifactId>lorem-ipsum-generator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
@@ -22,4 +22,22 @@
   		<optional>true</optional>
   	</dependency>
   </dependencies>
+  <distributionManagement>
+		 <snapshotRepository>
+		 	<id>thshsh-snapshots</id>
+			<url>http://www.thshsh.org/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>thshsh-releases</id>
+			<url>http://www.thshsh.org/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
+	<scm>
+		<connection>scm:git:git://github.com/theshoeshiner/lorem-ipsum-generator.git</connection>
+		<url>https://github.com/theshoeshiner/lorem-ipsum-generator</url>
+		<developerConnection>The Shoe Shiner</developerConnection>
+	</scm>
+	<name>Lorem Ipsum Generator</name>
+	<url>https://github.com/theshoeshiner/lorem-ipsum-generator</url>
+	<description>A library for generating random latin text based on the standard &quot;Lorem Ipsum&quot; text.</description>
 </project>

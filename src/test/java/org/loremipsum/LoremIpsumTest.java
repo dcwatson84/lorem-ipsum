@@ -15,11 +15,11 @@ public class LoremIpsumTest {
 	
 	@Test
 	public void createWord(){
-		String word = LoremIpsum.createWord();
+		String word = LoremIpsum.getWord();
 		System.out.println("Random Word: "+word);
 		
 		for(int i=0;i<10;i++){
-			String fake = LoremIpsum.createWord(i+1);
+			String fake = LoremIpsum.getWord(i+1);
 			System.out.println("Fake Word: "+fake);
 		}
 		

@@ -130,7 +130,7 @@ public class LoremIpsum {
 	private static List<String> createPhraseParts(int length,String wordSep) {
 		List<String> parts = new ArrayList<String>();
 		for (int j = 0; j < length; j++) {
-			String word = createWord();
+			String word = getWord();
 			if (j != 0)
 				parts.add(wordSep);
 			parts.add(word);
@@ -138,22 +138,58 @@ public class LoremIpsum {
 		return parts;
 	}
 	
-	public static String createWord(){
-		return createWord(null);
+	public static String getWord(){
+		return getWord(null,null);
 	}
 	
-	public static String createWord(Integer length){
-		if(!INIT_WORDS) initWords();
-		if(length == null) return WORD_ARRAY[RANDOM.nextInt(WORD_ARRAY.length)];
-		else {
-			String word = "";
-			while(word.length()<length){
-				word+=WORD_ARRAY[RANDOM.nextInt(WORD_ARRAY.length)];
-			}
-			if(word.length()>length)word = word.substring(0, length);
-			return word;
-		}
+	public static String getWord(Integer len){
+		return getWord(len,len);
 	}
+	
+
+	/**
+	 * Gets a word from the list of words that is >= min && <= max
+	 * @param min
+	 * @param max
+	 * @return
+	 */
+	public static String getWord(Integer min, Integer max){
+		if(!INIT_WORDS) initWords();
+		int start = RANDOM.nextInt(WORD_ARRAY.length);
+		int index = start;
+		String word = null;
+		for(;;) {
+			word = WORD_ARRAY[index++];
+			if((min == null || word.length() >= min) && (max == null || word.length() <= max) ) {
+				return word;
+			}
+			//wrap around
+			if(index == WORD_ARRAY.length) index = 0;
+			//if were back at the beginning
+			if(index == start) throw new IllegalStateException("Could not find word with size "+min+"-"+max);
+		}
+		
+	}
+	
+	//TODO do we even need a method to "create" new words?
+	/*
+	 * public static String getOrCreateWord(Integer min, Integer max){
+	 * if(!INIT_WORDS) initWords();
+	 * 
+	 * 
+	 * String word = getWord(min, max);
+	 * 
+	 * if(word != null) return word; else { //need to create word String word = "";
+	 * int start = RANDOM.nextInt(WORD_ARRAY.length); int index = start; for(;;) {
+	 * if(word.length()<max) {
+	 * 
+	 * } } }
+	 * 
+	 * if(min == null) return WORD_ARRAY[RANDOM.nextInt(WORD_ARRAY.length)]; else {
+	 * String word = ""; while(word.length()<length){
+	 * word+=WORD_ARRAY[RANDOM.nextInt(WORD_ARRAY.length)]; }
+	 * if(word.length()>length)word = word.substring(0, length); return word; } }
+	 */
 	
 	private static void initWords(){
 		INIT_WORDS = true;

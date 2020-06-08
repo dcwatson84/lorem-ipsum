@@ -14,7 +14,7 @@ import java.util.Random;
 import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.text.WordUtils;
+import org.apache.commons.lang.WordUtils;
 
 public class LoremIpsum {
 

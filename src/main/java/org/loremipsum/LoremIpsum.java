@@ -148,7 +148,7 @@ public class LoremIpsum {
 	
 
 	/**
-	 * Gets a word from the list of words that is >= min && <= max
+	 * Gets a word from the list of words whos length is GTE min and LTE  max
 	 * @param min
 	 * @param max
 	 * @return
